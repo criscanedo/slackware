@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Add argument checking
+# Add option to run strace
+
+program=$1
+logfile="$LOG_DIR/$program-$(date -I).log"
+
+$program &> $logfile

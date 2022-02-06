@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# Define variables
+confdir="$SRC_DIR/config"
+sirendir="$confdir/.siren"
+configdir="$confdir/.config"
+ytdldir="$configdir/youtube-dl"
+vimdir="$confdir/.vim"
+snippetsdir="$vimdir/snippets"
+muttdir="$confdir/.mutt"
+surfdir="$confdir/.surf"
+bindir="$confdir/bin"
+
+# Create directories
+if [ ! -d "$confdir" ]; then
+	mkdir $confdir
+fi
+
+if [ ! -d "$sirendir" ]; then
+	mkdir $sirendir
+fi
+
+if [ ! -d "$configdir" ]; then
+	mkdir $configdir
+fi
+
+if [ ! -d "$ytdldir" ]; then
+	mkdir $ytdldir
+fi
+
+if [ ! -d "$vimdir" ]; then
+	mkdir $vimdir
+fi
+
+if [ ! -d "$snippetsdir" ]; then
+	mkdir $snippetsdir
+fi
+
+if [ ! -d "$muttdir" ]; then
+	mkdir $muttdir
+fi
+
+if [ ! -d "$surfdir" ]; then
+	mkdir $surfdir
+fi
+
+if [ ! -d "$bindir" ]; then
+	mkdir $bindir
+fi
+
+# Copy files and directories
+cp ~/{.bashrc,.bash_profile,.bash_aliases,.vimrc,.tmux.conf,.xinitrc,.muttrc.example} $confdir
+cp ~/docs/software $confdir
+cp ~/.siren/config $sirendir
+cp ~/.config/youtube-dl/config $ytdldir
+cp ~/.surf/bookmarks $surfdir
+cp -r ~/.vim/snippets $vimdir
+cp -r ~/bin $confdir
+
+cd $confdir
+
+if [ ! -d ".git" ]; then
+	git init
+fi
+
+git add .
+git commit -m "Config update"
+#git push

@@ -1,0 +1,31 @@
+* dwm
+* st
+* slstatus
+* dmenu
+* webkit2gtk for surf
+* surf + patches
+* mutt
+* sfm
+* pass
+* gpg
+* taskwarrior
+* siren
+* sfm
+* mupdf
+* tmux
+* ffcast
+* xdotool
+* sxiv && imlib2
+* xclip
+* mupdf
+* youtube-dl
+* mplayer
+* irc.c
+* kirc
+
+# libraries
+* imlib2
+* libsoup
+* libwpe
+* wpebackend-fdo
+* libsocket

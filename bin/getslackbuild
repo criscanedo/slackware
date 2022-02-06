@@ -1,0 +1,32 @@
+#!/bin/bash
+
+ftype="$1"
+package="$2"
+workdir="$SRC_DIR/slackbuilds"
+
+if [ ! -d "$workdir" ]; then
+	mkdir $workdir
+fi
+
+if [ ! -d "$workdir/archive" ]; then
+	mkdir $workdir/archive
+fi
+
+pkgtar="$package.tar.gz"
+sig="$package.tar.gz.asc"
+
+wget slackbuilds.org/slackbuilds/15.0/$ftype/$pkgtar -O $workdir/$pkgtar
+wget slackbuilds.org/slackbuilds/15.0/$ftype/$sig -O $workdir/$sig
+
+gpg --verify $workdir/$sig $workdir/$pkgtar
+
+if [ $? -ne 0 ]; then
+	echo "GPG verification failed."
+	echo
+	return
+fi
+
+tar xzvf $workdir/$pkgtar -C $workdir
+mv $workdir/$pkgtar $workdir/archive
+mv $workdir/$sig $workdir/archive
+cd $workdir/$package

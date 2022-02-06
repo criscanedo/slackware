@@ -1,0 +1,53 @@
+set from="first last <user@email.com>"
+set realname="first last"
+set use_from=yes
+set envelope_from=yes
+
+# Credentials
+set imap_user="user@email.com"
+set imap_pass=""
+
+# Mailboxes
+set folder="imaps://imap.email.com:993/"
+set spoolfile=+Inbox
+
+# Outgoing mail settings
+set ssl_force_tls=yes
+set ssl_starttls=yes
+set smtp_url="smtps://user@email.com@mail.email.com:465/"
+set smtp_pass=""
+set edit_headers=yes
+set record=+Sent
+set postponed=+Drafts
+
+# Misc settings
+set editor="vim"
+set charset="UTF-8"
+set send_charset="utf-8"
+set header_cache="~/.mutt/cache/headers"
+set message_cachedir="~/.mutt/cache/bodies"
+set certificate_file="~/.mutt/certificates"
+set mail_check=30
+set move=no
+set sort=threads
+unset imap_passive
+unset use_domain
+
+# Contacts 
+source ~/.mutt/mutt_aliases
+
+color   hdrdefault   yellow            black
+color   quoted       blue              black
+color   signature    blue              black
+color   attachment   red               black
+color   message      brightred         black
+color   error        brightred         black
+color   indicator    black             yellow
+color   status       white             blue
+color   tree         white             black
+color   normal       white             black
+color   markers      red               black
+color   search       white             black
+color   tilde        brightmagenta     black
+color   index        blue              black ~F
+color   index        white             black "~N|~O"
