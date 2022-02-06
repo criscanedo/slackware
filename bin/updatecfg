@@ -49,13 +49,13 @@ if [ ! -d "$bindir" ]; then
 fi
 
 # Copy files and directories
-cp ~/{.bashrc,.bash_profile,.bash_aliases,.vimrc,.tmux.conf,.xinitrc,.muttrc.example} $confdir
-cp ~/docs/software $confdir
-cp ~/.siren/config $sirendir
-cp ~/.config/youtube-dl/config $ytdldir
-cp ~/.surf/bookmarks $surfdir
-cp -r ~/.vim/snippets $vimdir
-cp -r ~/bin $confdir
+cp -u ~/{.bashrc,.bash_profile,.bash_aliases,.vimrc,.tmux.conf,.xinitrc,.muttrc.example} $confdir
+cp -u ~/docs/software $confdir
+cp -u ~/.siren/config $sirendir
+cp -u ~/.config/youtube-dl/config $ytdldir
+cp -u ~/.surf/bookmarks $surfdir
+cp -ru ~/.vim/snippets $vimdir
+cp -ru ~/bin $confdir
 
 cd $confdir
 

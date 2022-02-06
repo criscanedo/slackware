@@ -1,20 +1,11 @@
 #!/bin/bash
 
-kircdir="$LOG_DIR/kirc"
-dalnetdir="$kircdir/dalnet"
-logfile="$dalnetdir/$(date -I).log"
-waitconnect="wait 30000"
-identnick="privmsg nickserv@services.dal.net :identify $NICK $(dalnetpass)"
-identchan="privmsg chanserv@services.dal.net :identify bitmatrix $(bmatrixpass)"
-waitident="wait 5000"
+ircdir="$LOG_DIR/irc"
+oftcdir="$ircdir/oftc"
+logfile="$oftcdir/$(date -I).log"
 
-# run kirc
-kirc -s irc.dal.net \
-	-p 6667 \
-	-c bitmatrix \
-	-n $NICK \
-	-x $identnick \
-	-x $waitident \
-	-x $identchan \
-	-x $waitident \
-	-o $logfile \
+# run irc
+irc -s irc.oftc.net \
+	-p 6697 \
+	-l $logfile \
+	-t

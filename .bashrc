@@ -8,6 +8,7 @@ export PATH="$PATH:/usr/sbin:/usr/local/sbin:/sbin:/home/hackexe/bin"
 export CPATH="/usr/include"
 export CPLUS_INCLUDE_PATH="/usr/include/c++/11.2.0"
 export NICK="hackerexecute"
+export IRCNICK="hackerexecute"
 export BIN_DIR="$HOME/bin"
 export VAR_DIR="$HOME/var"
 export SRC_DIR="$HOME/src"
@@ -42,6 +43,12 @@ if [ ! -d "$LOG_DIR/kirc/dalnet" ]; then
 fi
 if [ ! -d "$LOG_DIR/kirc/oftc" ]; then
 	mkdir $LOG_DIR/kirc/oftc
+fi
+if [ ! -d "$LOG_DIR/irc" ]; then
+	mkdir $LOG_DIR/irc
+fi
+if [ ! -d "$LOG_DIR/irc/oftc" ]; then
+	mkdir $LOG_DIR/irc/oftc
 fi
 if [ ! -d "$DOCS_DIR" ]; then
 	mkdir $DOCS_DIR

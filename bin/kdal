@@ -4,7 +4,7 @@ kircdir="$LOG_DIR/kirc"
 dalnetdir="$kircdir/dalnet"
 logfile="$dalnetdir/$(date -I).log"
 waitconnect="wait 30000"
-identnick="privmsg nickserv@services.dal.net :identify $NICK $(dalnetpass)"
+identnick="privmsg nickserv@services.dal.net :identify $IRCNICK $(dalnetpass)"
 identchan="privmsg chanserv@services.dal.net :identify bitmatrix $(bmatrixpass)"
 waitident="wait 5000"
 
@@ -12,9 +12,6 @@ waitident="wait 5000"
 kirc -s irc.dal.net \
 	-p 6667 \
 	-c bitmatrix \
-	-n $NICK \
+	-n $IRCNICK \
 	-x $identnick \
-	-x $waitident \
-	-x $identchan \
-	-x $waitident \
 	-o $logfile \
